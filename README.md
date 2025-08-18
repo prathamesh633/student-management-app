@@ -39,12 +39,4 @@ You can easily run this application using Docker.
     docker run -d -p 8080:8080 --name student-app-container student-app
     ```
 
-    This will start the application in a detached mode and map port 8080 of the container to port 8080 on your local machine.
-
-3.  **Access the application:**
-
-    Now you can access the application by opening your web browser and navigating to:
-
-    [http://localhost:8080/student-app/](http://localhost:8080/student-app/)
-
-    You should see the home page of the Student Management application. From there you can start to add, view, edit, and delete students.
+    This will start the application in a detached mode and map port 8080 of the container to ntart to add, view, edit, and delete students.
