@@ -28,7 +28,7 @@ You can easily run this application using Docker.
     Open your terminal or command prompt and navigate to the project's root directory. Then, run the following command to build the Docker image:
 
     ```sh
-    docker build -t student-app .
+    docker build -t management-app .
     ```
 
 2.  **Run the Docker container:**
@@ -36,7 +36,15 @@ You can easily run this application using Docker.
     Once the image is built, you can run it as a container with this command:
 
     ```sh
-    docker run -d -p 8080:8080 --name student-app-container student-app
+    docker run -d -p 8080:8080 --name management-app-container management-app
     ```
 
-    This will start the application in a detached mode and map port 8080 of the container to ntart to add, view, edit, and delete students.
+    This will start the application in a detached mode and map port 8080 of the container to port 8080 on your local machine.
+
+3.  **Access the application:**
+
+    Now you can access the application by opening your web browser and navigating to:
+
+    [http://localhost:8080/management-app/](http://localhost:8080/management-app/)
+
+    You should see the home page of the Student Management application. From there you can start to add, view, edit, and delete students.

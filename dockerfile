@@ -8,4 +8,4 @@ RUN mvn package
 
 FROM tomcat 
 
-COPY --from=builder /mnt/student-ui/target/*.war webapps/student-app.war
+COPY --from=builder /mnt/student-ui/target/*.war webapps/management-app.war
