@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  student-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: student-management-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    restart: unless-stopped
+    volumes:
+      - ./logs:/usr/local/tomcat/logs
+      - ./WebContent:/usr/local/tomcat/webapps/ROOT
+    networks:
+      - student-network
+
+  # Uncomment and configure if you need a database
+  # db:
+  #   image: mysql:5.7
+  #   container_name: student-db
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: rootpass
+  #     MYSQL_DATABASE: studentdb
+  #     MYSQL_USER: studentuser
+  #     MYSQL_PASSWORD: studentpass
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - db_data:/var/lib/mysql
+  #   networks:
+  #     - student-network
+
+networks:
+  student-network:
+    driver: bridge
+
+# Uncomment if using database
+# volumes:
+#   db_data:
