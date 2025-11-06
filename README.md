@@ -6,45 +6,71 @@ Welcome to the Student Management Web Application! This is a simple Java-based w
 
 This project is built using the following technologies:
 
-*   **Java:** The core programming language for the application.
-*   **Servlets:** To handle the web requests and business logic.
-*   **JSP (JavaServer Pages):** For the presentation layer and user interface.
-*   **Apache Tomcat:** As the web server and servlet container.
-*   **Maven:** For project build and dependency management.
-*   **Docker:** For containerizing and running the application.
+* **Java:** The core programming language for the application.
+* **Servlets:** To handle the web requests and business logic.
+* **JSP (JavaServer Pages):** For the presentation layer and user interface.
+* **Apache Tomcat:** As the web server and servlet container.
+* **Maven:** For project build and dependency management.
+* **Docker & Docker Compose:** For containerization and easy deployment.
 
-## Getting Started with Docker
+## Prerequisites
 
-You can easily run this application using Docker.
+- [Docker](https://docs.docker.com/get-docker/) installed on your machine
+- [Docker Compose](https://docs.docker.com/compose/install/) (usually comes with Docker Desktop)
 
-### Prerequisites
+## Getting Started with Docker Compose
 
-*   [Docker](https://docs.docker.com/get-docker/) installed on your machine.
+### Quick Start
 
-### Build and Run the Application
+1. Clone the repository and navigate to the project directory
+2. Run the following command to start the application:
+   ```sh
+   docker-compose up -d
+   ```
+3. The application will be available at: [http://localhost:8081](http://localhost:8081)
 
-1.  **Build the Docker image:**
+### Detailed Instructions
 
-    Open your terminal or command prompt and navigate to the project's root directory. Then, run the following command to build the Docker image:
+#### Starting the Application
 
-    ```sh
-    docker build -t management-app .
-    ```
+```sh
+# Build and start the containers in detached mode
+docker-compose up -d
 
-2.  **Run the Docker container:**
+# View logs
+docker-compose logs -f
 
-    Once the image is built, you can run it as a container with this command:
+# Check container status
+docker-compose ps
+```
 
-    ```sh
-    docker run -d -p 8080:8080 --name management-app-container management-app
-    ```
+#### Stopping the Application
 
-    This will start the application in a detached mode and map port 8080 of the container to port 8080 on your local machine.
+```sh
+# Stop the containers
+docker-compose down
 
-3.  **Access the application:**
+# Stop and remove containers, networks, and volumes
+docker-compose down -v
+```
 
-    Now you can access the application by opening your web browser and navigating to:
+#### Rebuilding the Application
 
-    [http://localhost:8080/management-app/](http://localhost:8080/management-app/)
+If you make changes to the application code, rebuild the container with:
 
-    You should see the home page of the Student Management application. From there you can start to add, view, edit, and delete students.
+```sh
+docker-compose up -d --build
+```
+
+## Accessing the Application
+
+- **Application URL:** [http://localhost:8081](http://localhost:8081)
+- **Tomcat Manager:** [http://localhost:8081/manager](http://localhost:8081/manager) (if configured)
+
+## Configuration
+
+The application can be configured using environment variables in the `docker-compose.yml` file. The current configuration includes:
+
+- Port mapping: 8081:8080 (host:container)
+- Volume mounts for logs and web content
+- Development profile activation
