@@ -1,6 +1,7 @@
 
-// - Run - sudo apt update && sudo apt install docker.io -y && sudo usermod -aG docker $USER && newgrp docker && sudo usermod -aG docker jenkins
-// Docker and docker-compose should be installed on the Jenkins server.
+// - Run - sudo apt update && sudo apt install docker.io -y && sudo usermod -aG docker $USER && newgrp docker 
+// - Docker and docker-compose should be installed on the Jenkins server.
+// - Run this command after installing docker AND jenkins - sudo usermod -aG docker jenkins
 pipeline {
     agent any
 
